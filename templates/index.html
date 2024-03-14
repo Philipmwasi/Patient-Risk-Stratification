@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <style>
+    /* Center the heading */
+    h1 {
+      text-align: center;
+      color: yellow; /* Change heading color to yellow */
+    }
+
+    /* Center the paragraph */
+    .centered {
+      text-align: center;
+    }
+
+    /* Center the form elements */
+    form {
+      text-align: center;
+    }
+
+    /* Increase font size */
+    .large-text {
+      font-size: 20px; /* Adjust font size as needed */
+    }
+
+    /* Background image */
+    body {
+      background-image: url('https://img.freepik.com/free-photo/abstract-virus-blood-cells_1048-12007.jpg?w=740&t=st=1710424592~exp=1710425192~hmac=3f6bca7743b1f3bcd495114b448e7aae6bd70c805010dd531dfdbdf6d39a3cab');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    /* Yellow paragraph text */
+    p {
+      color: yellow;
+    }
+  </style>
+</head>
+
+<body> <!-- Background image -->
+
+  <div class="login">
+    <h1>Patient ART Discontinuation Risk Prediction</h1> <!-- Yellow heading -->
+    <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post">
+      <input type="text" name="VL" placeholder="Viral_load" required="required" /><br><br>
+      <input type="text" name="Rel CD4" placeholder="CD4_Count" required="required" /><br><br>
+      <input type="text" name="Base Drug Combo" placeholder="Base_Drug_Combination" required="required" /><br><br>
+
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+	{{ prediction_text }}
+    
+    <!-- Additional Details Paragraph -->
+    <p class="centered large-text">Get to understand the risk of your patient discountinuing the ART in time and take suitable measures before it actually happens! Utilize machine learning models to make informed professional decisions. Understanding your patient has been made easier than 1 2 3 !!</p>
+  </div>
+
+</body>
+</html>
