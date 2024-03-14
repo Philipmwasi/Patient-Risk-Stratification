@@ -42,6 +42,11 @@
     p {
       color: yellow;
     }
+
+    /* White prediction text */
+    .prediction-text {
+      color: white;
+    }
   </style>
 </head>
 
@@ -55,9 +60,9 @@
       <input type="text" name="Rel CD4" placeholder="CD4_Count" required="required" /><br><br>
       <input type="text" name="Base Drug Combo" placeholder="Base_Drug_Combination" required="required" /><br><br>
 
-      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+      <button type="submit" class="btn btn-primary btn-block btn-large" style="background-color: red; color: white;">Predict</button>
     </form>
-	{{ prediction_text }}
+    <p class="centered large-text prediction-text">{{ prediction_text }}</p>
     
     <!-- Additional Details Paragraph -->
     <p class="centered large-text">Get to understand the risk of your patient discountinuing the ART in time and take suitable measures before it actually happens! Utilize machine learning models to make informed professional decisions. Understanding your patient has been made easier than 1 2 3 !!</p>
