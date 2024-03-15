@@ -42,10 +42,22 @@
     p {
       color: yellow;
     }
-
+    
     /* White prediction text */
     .prediction-text {
+      text-align: center;
       color: white;
+    }
+    
+    /* Red prediction button */
+    .btn-primary {
+      background-color: red;
+      color: white; /* Change text color to white */
+    }
+
+    /* On hover effect */
+    .btn-primary:hover {
+      background-color: darkred;
     }
   </style>
 </head>
@@ -53,16 +65,17 @@
 <body> <!-- Background image -->
 
   <div class="login">
-    <h1>Patient ART Discontinuation Risk Prediction</h1> <!-- Yellow heading -->
+    <h1>Patient ART Discontinuation Prediction</h1> <!-- Yellow heading -->
     <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}" method="post">
       <input type="text" name="VL" placeholder="Viral_load" required="required" /><br><br>
       <input type="text" name="Rel CD4" placeholder="CD4_Count" required="required" /><br><br>
       <input type="text" name="Base Drug Combo" placeholder="Base_Drug_Combination" required="required" /><br><br>
-
-      <button type="submit" class="btn btn-primary btn-block btn-large" style="background-color: red; color: white;">Predict</button>
+      <input type="text" name="Comp. INI" placeholder="Initial_ART_completion" required="required" /><br><br>
+      <input type="text" name="Drug (M)" placeholder="Monthly_drug_administered" required="required" /><br><br>
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
     </form>
-    <p class="centered large-text prediction-text">{{ prediction_text }}</p>
+    <p class="prediction-text">{{ prediction_text }}</p>
     
     <!-- Additional Details Paragraph -->
     <p class="centered large-text">Get to understand the risk of your patient discountinuing the ART in time and take suitable measures before it actually happens! Utilize machine learning models to make informed professional decisions. Understanding your patient has been made easier than 1 2 3 !!</p>

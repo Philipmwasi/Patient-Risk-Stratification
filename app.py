@@ -4,7 +4,7 @@ import pickle
 
 # Create flask app
 flask_app = Flask(__name__)
-model = pickle.load(open("model.pkl", "rb"))
+model = pickle.load(open("log_reg_classifier.pkl", "rb"))
 
 @flask_app.route("/")
 def Home():
